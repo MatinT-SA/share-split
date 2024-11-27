@@ -1,3 +1,10 @@
+import { FaUser, FaImage, FaHandHoldingUsd } from "react-icons/fa";
+import {
+  AiOutlineFileText,
+  AiOutlineUser,
+  AiOutlineTeam,
+} from "react-icons/ai";
+
 const initialFriends = [
   {
     id: 118836,
@@ -24,7 +31,10 @@ export default function App() {
     <div className="app">
       <div className="sidebar">
         <FriendsList />
+        <FormAddFriend />
+        <Button>Add Friend</Button>
       </div>
+      <FormSplitBill />
     </div>
   );
 }
@@ -59,7 +69,66 @@ function Friend({ friend }) {
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-      <button className="button">Select</button>
+      <Button>Select</Button>
     </li>
+  );
+}
+
+function Button({ children }) {
+  return <button className="button">{children}</button>;
+}
+
+function FormAddFriend() {
+  return (
+    <form className="form-add-friend">
+      <label>
+        <FaUser className="icons" />
+        Friend Name
+      </label>
+      <input type="text" />
+
+      <label>
+        <FaImage className="icons" />
+        Image URL
+      </label>
+      <input type="text" />
+
+      <Button>Add</Button>
+    </form>
+  );
+}
+
+function FormSplitBill() {
+  return (
+    <form className="form-split-bill">
+      <h2>Split a bill with X</h2>
+
+      <label>
+        <AiOutlineFileText style={{ marginRight: "8px" }} />
+        Bill
+      </label>
+      <input type="text" />
+
+      <label>
+        <AiOutlineUser style={{ marginRight: "8px" }} />
+        Your Expense
+      </label>
+      <input type="text" />
+
+      <label>
+        <AiOutlineTeam style={{ marginRight: "8px" }} />
+        Friend's Expense
+      </label>
+      <input type="text" disabled />
+
+      <label>
+        <FaHandHoldingUsd style={{ marginRight: "8px" }} />
+        Who's Paying?
+      </label>
+      <select>
+        <option value="user">You</option>
+        <option value="friend">X</option>
+      </select>
+    </form>
   );
 }

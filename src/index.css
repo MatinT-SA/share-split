@@ -151,6 +151,7 @@ form {
 .form-split-bill {
   grid-template-columns: 2fr 3fr;
   padding: 2.5rem 3.4rem 3rem;
+  transition: 0.4s ease;
 }
 
 label {
@@ -191,4 +192,21 @@ form h2 {
 
 .icons {
   margin-right: 0.9rem;
+}
+
+/* popup */
+
+.popup {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(22, 143, 36);
+  color: white;
+  padding: 2rem 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 2rem 2rem 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.2);
 }

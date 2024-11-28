@@ -35,6 +35,7 @@ export default function App() {
   const [showAddFriend, setShowAddFriend] = useState(false);
   const [friends, setFriends] = useState(initialFriends);
   const [selectedFriend, setSelectedFriend] = useState(null);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   function handleShowAddFriend() {
     setShowAddFriend((curShow) => !curShow);
@@ -61,6 +62,11 @@ export default function App() {
       )
     );
     setSelectedFriend(null);
+
+    setShowSuccessPopup(true);
+    setTimeout(() => {
+      setShowSuccessPopup(false);
+    }, 2000);
   }
 
   return (
@@ -83,6 +89,14 @@ export default function App() {
           selectedFriend={selectedFriend}
           onSplitBill={handleSplitBill}
         />
+      )}
+
+      {showSuccessPopup && (
+        <div className="popup">
+          <div>
+            <p>Split successfully!</p>
+          </div>
+        </div>
       )}
     </div>
   );

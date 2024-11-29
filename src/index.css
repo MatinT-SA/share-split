@@ -20,7 +20,7 @@
 }
 
 html {
-  font-size: 65%;
+  font-size: 60%;
   font-family: "Dosis", sans-serif;
 }
 
@@ -279,7 +279,7 @@ form h2 {
 /* ◉◉◉◉◉◉◉◉◉◉◉❯ Responsiveness ❮◉◉◉◉◉◉◉◉◉◉◉◉ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-@media (min-width: 1800px) {
+@media (min-width: 1900px) {
   html {
     font-size: 80%;
   }

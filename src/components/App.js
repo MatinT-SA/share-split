@@ -34,6 +34,7 @@ export default function App() {
 
   function handleShowAddFriend() {
     setShowAddFriend((curShow) => !curShow);
+    setSelectedFriend(null);
   }
 
   function handleAddFriend(friend) {

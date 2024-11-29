@@ -5,6 +5,9 @@ import { Button } from "./Button";
 export function FormAddFriend({ onAddFriend }) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/400");
+  const [defaultImage, setDefaultImage] = useState(
+    `https://i.pravatar.cc/400?u=${crypto.randomUUID()}`
+  );
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,7 +18,7 @@ export function FormAddFriend({ onAddFriend }) {
 
     const newFriend = {
       name,
-      image: `${image}/${id}`,
+      image: image === "https://i.pravatar.cc/400" ? defaultImage : image,
       balance: 0,
       id,
     };
@@ -23,6 +26,7 @@ export function FormAddFriend({ onAddFriend }) {
     onAddFriend(newFriend);
 
     setName("");
+    setDefaultImage(`https://i.pravatar.cc/400?u=${crypto.randomUUID()}`);
     setImage("https://i.pravatar.cc/400");
   }
 

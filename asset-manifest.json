@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/share-split/static/css/main.cf1b6ae8.css",
+    "main.js": "/share-split/static/js/main.38d8c6ae.js",
+    "index.html": "/share-split/index.html",
+    "main.cf1b6ae8.css.map": "/share-split/static/css/main.cf1b6ae8.css.map",
+    "main.38d8c6ae.js.map": "/share-split/static/js/main.38d8c6ae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf1b6ae8.css",
+    "static/js/main.38d8c6ae.js"
+  ]
+}

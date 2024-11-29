@@ -36,6 +36,7 @@ export function FormAddFriend({ onAddFriend }) {
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        autoFocus
       />
 
       <label>

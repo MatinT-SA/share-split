@@ -235,30 +235,44 @@ form h2 {
 /* ◉◉◉◉◉◉◉◉◉◉◉◉◉❯ Pagination ❮◉◉◉◉◉◉◉◉◉◉◉◉◉ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+/* Friends list container */
+.friends-list-container {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Pagination buttons container */
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 12px;
+  margin-top: 16px;
 }
 
-.pagination button {
-  padding: 0.5rem 1rem;
+/* Pagination buttons */
+.pagination-btn {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  padding: 8px 16px;
   cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
-.pagination button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.pagination-btn:hover {
+  background-color: #0056b3;
 }
 
+/* Current page display */
 .pagination span {
-  font-size: 1rem;
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

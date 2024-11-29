@@ -8,18 +8,19 @@ export function FriendsList({ friends, onSelectFriend, selectedFriend }) {
   const totalPages = Math.ceil(friends.length / friendsPerPage);
   const startIndex = (currentPage - 1) * friendsPerPage;
   const endIndex = startIndex + friendsPerPage;
+
   const currentFriends = friends.slice(startIndex, endIndex);
 
-  function handleNextPage() {
-    setCurrentPage((page) => Math.min(page + 1, totalPages));
+  function handlePreviousPage() {
+    setCurrentPage((prevPage) => prevPage - 1);
   }
 
-  function handlePreviousPage() {
-    setCurrentPage((page) => Math.max(page - 1, 1));
+  function handleNextPage() {
+    setCurrentPage((prevPage) => prevPage + 1);
   }
 
   return (
-    <div>
+    <div className="friends-list-container">
       <ul>
         {currentFriends.map((friend) => (
           <Friend
@@ -30,16 +31,26 @@ export function FriendsList({ friends, onSelectFriend, selectedFriend }) {
           />
         ))}
       </ul>
+
       <div className="pagination">
-        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-          Previous
-        </button>
+        {/* Conditionally render Previous button */}
+        {currentPage > 1 && (
+          <button onClick={handlePreviousPage} className="pagination-btn">
+            Previous
+          </button>
+        )}
+
+        {/* Conditionally render Next button */}
+        {currentPage < totalPages && (
+          <button onClick={handleNextPage} className="pagination-btn">
+            Next
+          </button>
+        )}
+
+        {/* Show page information */}
         <span>
           Page {currentPage} of {totalPages}
         </span>
-        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-          Next
-        </button>
       </div>
     </div>
   );

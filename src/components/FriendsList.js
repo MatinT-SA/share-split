@@ -3,7 +3,10 @@ import { Friend } from "./Friend";
 
 export function FriendsList({ friends, onSelectFriend, selectedFriend }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const friendsPerPage = 4;
+  let friendsPerPage = 4;
+
+  const width = window.innerWidth;
+  if (width < 850) friendsPerPage = 3;
 
   const totalPages = Math.ceil(friends.length / friendsPerPage);
   const startIndex = (currentPage - 1) * friendsPerPage;

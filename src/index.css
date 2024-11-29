@@ -5,12 +5,12 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 :root {
-  --color-selected: #e6fdff;
-  --color-hover-friend: #c2f0f2;
+  --color-hover-friend: #caeef1;
   --color-light: #7a0894;
   --color-medium: #700291;
   --color-dark: #e16cee;
   --color-light-blue: rgb(171, 210, 209);
+  --color-blue-form: #82c2c8;
 }
 
 * {
@@ -101,11 +101,11 @@ body {
 
 .selected,
 .sidebar li:hover {
-  background-color: var(--color-hover-friend);
+  background-color: var(--color-light-blue);
 }
 
 .sidebar li:hover {
-  background-color: var(--color-selected);
+  background-color: var(--color-hover-friend);
 }
 
 .sidebar li img {
@@ -134,7 +134,7 @@ body {
 
 .sidebar > .button {
   float: right;
-  margin-right: 1rem;
+  margin: 1.5rem 1rem 0 0;
 }
 
 .green {
@@ -155,7 +155,7 @@ form {
   align-items: center;
   gap: 1.7rem 1rem;
 
-  background-color: #82c2c8;
+  background-color: var(--color-blue-form);
   border-radius: 10px;
 }
 

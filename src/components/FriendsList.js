@@ -33,24 +33,21 @@ export function FriendsList({ friends, onSelectFriend, selectedFriend }) {
       </ul>
 
       <div className="pagination">
-        {/* Conditionally render Previous button */}
         {currentPage > 1 && (
           <button onClick={handlePreviousPage} className="pagination-btn">
             Previous
           </button>
         )}
 
-        {/* Conditionally render Next button */}
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+
         {currentPage < totalPages && (
           <button onClick={handleNextPage} className="pagination-btn">
             Next
           </button>
         )}
-
-        {/* Show page information */}
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
       </div>
     </div>
   );

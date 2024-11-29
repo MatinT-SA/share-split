@@ -3,6 +3,7 @@ import { FriendsList } from "./FriendsList";
 import { FormAddFriend } from "./FormAddFriend";
 import { FormSplitBill } from "./FormSplitBill";
 import { Button } from "./Button";
+import Logo from "./Logo";
 
 const initialFriends = [
   {
@@ -66,6 +67,7 @@ export default function App() {
   return (
     <div className="app">
       <div className="sidebar">
+        <Logo />
         <FriendsList
           friends={friends}
           selectedFriend={selectedFriend}

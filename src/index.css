@@ -297,3 +297,52 @@ form h2 {
     grid-template-columns: 1fr 2fr;
   }
 }
+
+@media (max-width: 1050px) {
+  html {
+    font-size: 55%;
+  }
+
+  .form-split-bill {
+    grid-template-columns: 4fr 3fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .app {
+    margin: auto 4rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 770px) {
+  html {
+    font-size: 50%;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: auto 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .form-split-bill {
+    width: 100%;
+  }
+
+  .logo {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 48%;
+  }
+}

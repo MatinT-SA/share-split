@@ -1,6 +1,12 @@
 import { Button } from "./Button";
+import { MdDelete } from "react-icons/md";
 
-export function Friend({ friend, onSelectFriend, selectedFriend }) {
+export function Friend({
+  friend,
+  onSelectFriend,
+  selectedFriend,
+  onDeleteFriend,
+}) {
   const isSelected = selectedFriend?.id === friend.id;
 
   return (
@@ -22,6 +28,9 @@ export function Friend({ friend, onSelectFriend, selectedFriend }) {
 
       <Button onClick={() => onSelectFriend(friend)}>
         {isSelected ? "Close" : "Select"}
+      </Button>
+      <Button onClick={() => onDeleteFriend(friend.id)}>
+        <MdDelete />
       </Button>
     </li>
   );

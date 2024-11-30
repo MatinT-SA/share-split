@@ -57,6 +57,14 @@ export default function App() {
     setShowAddFriend(false);
   }
 
+  function handleDeleteFriend(id) {
+    setFriends((friends) => friends.filter((friend) => friend.id !== id));
+
+    if (selectedFriend?.id === id) {
+      setSelectedFriend(null);
+    }
+  }
+
   function handleSplitBill(value) {
     setFriends((friends) =>
       friends.map((friend) =>
@@ -81,6 +89,7 @@ export default function App() {
           friends={friends}
           selectedFriend={selectedFriend}
           onSelectFriend={handleSelectFriend}
+          onDeleteFriend={handleDeleteFriend}
         />
 
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}

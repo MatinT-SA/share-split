@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Friend } from "./Friend";
 
-export function FriendsList({ friends, onSelectFriend, selectedFriend }) {
+export function FriendsList({
+  friends,
+  onSelectFriend,
+  selectedFriend,
+  onDeleteFriend,
+}) {
   const [currentPage, setCurrentPage] = useState(1);
   let friendsPerPage = 4;
 
@@ -31,6 +36,7 @@ export function FriendsList({ friends, onSelectFriend, selectedFriend }) {
             key={friend.id}
             onSelectFriend={onSelectFriend}
             selectedFriend={selectedFriend}
+            onDeleteFriend={onDeleteFriend}
           />
         ))}
       </ul>

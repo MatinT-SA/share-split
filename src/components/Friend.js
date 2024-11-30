@@ -26,12 +26,20 @@ export function Friend({
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-      <Button onClick={() => onSelectFriend(friend)}>
-        {isSelected ? "Close" : "Select"}
-      </Button>
-      <Button onClick={() => onDeleteFriend(friend.id)}>
-        <MdDelete />
-      </Button>
+      <div className="friend--btn">
+        <Button
+          onClick={() => onDeleteFriend(friend.id)}
+          className="btn-delete-friend"
+        >
+          <MdDelete />
+        </Button>
+        <Button
+          onClick={() => onSelectFriend(friend)}
+          className="btn-select-friend"
+        >
+          {isSelected ? "Close" : "Select"}
+        </Button>
+      </div>
     </li>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Friend } from "./Friend";
 
 export function FriendsList({
@@ -18,6 +18,12 @@ export function FriendsList({
   const endIndex = startIndex + friendsPerPage;
 
   const currentFriends = friends.slice(startIndex, endIndex);
+
+  useEffect(() => {
+    if (currentFriends.length === 0 && currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  }, [friends, currentFriends, currentPage]);
 
   function handlePreviousPage() {
     setCurrentPage((prevPage) => prevPage - 1);
@@ -41,23 +47,25 @@ export function FriendsList({
         ))}
       </ul>
 
-      <div className="pagination">
-        {currentPage > 1 && (
-          <button onClick={handlePreviousPage} className="pagination-btn">
-            Previous
-          </button>
-        )}
+      {friends.length > 0 && (
+        <div className="pagination">
+          {currentPage > 1 && (
+            <button onClick={handlePreviousPage} className="pagination-btn">
+              Previous
+            </button>
+          )}
 
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
 
-        {currentPage < totalPages && (
-          <button onClick={handleNextPage} className="pagination-btn">
-            Next
-          </button>
-        )}
-      </div>
+          {currentPage < totalPages && (
+            <button onClick={handleNextPage} className="pagination-btn">
+              Next
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }

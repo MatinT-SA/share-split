@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FriendsList } from "./FriendsList";
 import { FormAddFriend } from "./FormAddFriend";
 import { FormSplitBill } from "./FormSplitBill";
@@ -28,9 +28,17 @@ const initialFriends = [
 
 export default function App() {
   const [showAddFriend, setShowAddFriend] = useState(false);
-  const [friends, setFriends] = useState(initialFriends);
   const [selectedFriend, setSelectedFriend] = useState(null);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  // Local Storage
+  const [friends, setFriends] = useState(() => {
+    const savedFriends = localStorage.getItem("friends");
+    return savedFriends ? JSON.parse(savedFriends) : initialFriends;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("friends", JSON.stringify(friends));
+  }, [friends]);
 
   function handleShowAddFriend() {
     setShowAddFriend((curShow) => !curShow);
@@ -47,6 +55,14 @@ export default function App() {
       curSelect?.id === friend.id ? null : friend
     );
     setShowAddFriend(false);
+  }
+
+  function handleDeleteFriend(id) {
+    setFriends((friends) => friends.filter((friend) => friend.id !== id));
+
+    if (selectedFriend?.id === id) {
+      setSelectedFriend(null);
+    }
   }
 
   function handleSplitBill(value) {
@@ -73,6 +89,7 @@ export default function App() {
           friends={friends}
           selectedFriend={selectedFriend}
           onSelectFriend={handleSelectFriend}
+          onDeleteFriend={handleDeleteFriend}
         />
 
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}

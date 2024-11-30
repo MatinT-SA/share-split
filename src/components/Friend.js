@@ -1,6 +1,12 @@
 import { Button } from "./Button";
+import { MdDelete } from "react-icons/md";
 
-export function Friend({ friend, onSelectFriend, selectedFriend }) {
+export function Friend({
+  friend,
+  onSelectFriend,
+  selectedFriend,
+  onDeleteFriend,
+}) {
   const isSelected = selectedFriend?.id === friend.id;
 
   return (
@@ -20,9 +26,20 @@ export function Friend({ friend, onSelectFriend, selectedFriend }) {
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-      <Button onClick={() => onSelectFriend(friend)}>
-        {isSelected ? "Close" : "Select"}
-      </Button>
+      <div className="friend--btn">
+        <Button
+          onClick={() => onDeleteFriend(friend.id)}
+          className="btn-delete-friend"
+        >
+          <MdDelete />
+        </Button>
+        <Button
+          onClick={() => onSelectFriend(friend)}
+          className="btn-select-friend"
+        >
+          {isSelected ? "Close" : "Select"}
+        </Button>
+      </div>
     </li>
   );
 }

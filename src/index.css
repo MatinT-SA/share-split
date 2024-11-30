@@ -55,12 +55,12 @@ body {
   color: #e6e7e8;
   padding: 0.9rem 1.7rem;
   border: none;
-  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.4s;
   font-family: "Dosis", sans-serif;
   font-size: 1.5rem;
+  border-radius: 10px;
 }
 
 .button:hover {
@@ -139,14 +139,25 @@ body {
   grid-column: 2;
 }
 
-.sidebar li .button {
-  grid-row: span 2;
-  grid-column: 3;
-}
-
 .sidebar > .button {
   float: right;
   margin: 1rem 1rem 0 0;
+}
+
+.friend--btn {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-delete-friend {
+  border-radius: 10px 0 0 10px;
+  border-right: 1px solid var(--color-dark);
+  padding: 0.9rem 1rem;
+}
+
+.btn-select-friend {
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.3rem;
 }
 
 .green {
@@ -343,5 +354,14 @@ form h2 {
 @media (max-width: 350px) {
   html {
     font-size: 48%;
+  }
+
+  .friends-list-container {
+    padding: 0.7rem 0;
+  }
+
+  .sidebar li {
+    column-gap: 1.5rem;
+    padding: 1rem;
   }
 }

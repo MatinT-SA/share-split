@@ -108,7 +108,6 @@ body {
   column-gap: 2rem;
 
   padding: 1rem 1.3rem;
-  border-radius: 10px;
   transition: 0.5s;
 }
 
@@ -169,13 +168,13 @@ form {
   gap: 1.7rem 1rem;
 
   background-color: var(--color-blue-form);
-  border-radius: 10px;
 }
 
 .form-add-friend {
   grid-template-columns: 1fr 1.5fr;
   margin-bottom: 1.5rem;
   padding: 1.5rem 1.2rem 1rem;
+  border-radius: 0 0 10px 10px;
 }
 
 .form-split-bill {
@@ -251,7 +250,7 @@ form h2 {
 .friends-list-container {
   padding: 0.7rem 1.2rem;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 10px 10px 0 0;
   background-color: #f9f9f9;
 }
 

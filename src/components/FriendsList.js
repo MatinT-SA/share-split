@@ -8,10 +8,7 @@ export function FriendsList({
   onDeleteFriend,
 }) {
   const [currentPage, setCurrentPage] = useState(1);
-  let friendsPerPage = 4;
-
-  const width = window.innerWidth;
-  if (width < 850) friendsPerPage = 3;
+  let friendsPerPage = 3;
 
   const totalPages = Math.ceil(friends.length / friendsPerPage);
   const startIndex = (currentPage - 1) * friendsPerPage;
